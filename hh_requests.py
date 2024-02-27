@@ -1,9 +1,9 @@
 import pprint
 import numpy as np
 import requests
-from ares import separator, seach_parametrs
-from ares import url_vacancies
-from ares import menu_seach_parametrs
+from areas import separator, seach_parametrs
+from areas import url_vacancies
+from areas import menu_seach_parametrs
 
 params, profession, point = menu_seach_parametrs()
 keywords = params['text']
