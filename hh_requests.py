@@ -3,31 +3,19 @@ import numpy as np
 import requests
 from areas import separator, seach_parametrs
 from areas import url_vacancies
-from areas import menu_seach_parametrs
+from areas import menu_seach_parametrs, menu_parser
 
-params, profession, point = menu_seach_parametrs()
-keywords = params['text']
-print('Поисковый запрос сформирован')
-print(input('\nВведите для продолжения Enter'))
 
-result = requests.get(url_vacancies, params=params)
 
-print(separator('@@@@@@@@@@@@@', 2))
-print(f'\tStatus_code: {result.status_code}')
-print(separator('@@@@@@@@@@@@@', 2))
 
-data = result.json()
-pages = data['pages']
-found_vacancies = data['found']
-print(f'*** По запросу "{keywords}" найдено вакансий: {found_vacancies}  ***')
 
-list_vacancies = []  # все вакансии по  запросу
-for page in range(pages):
-    params = seach_parametrs(profession, point, page)
-    result = requests.get(url_vacancies, params=params)
-    data = result.json()
-    list_page = data['items']
-    list_vacancies.extend(list_page)
+# list_vacancies = []  # все вакансии по  запросу
+# for page in range(pages):
+#     params = seach_parametrs(profession, point, page)
+#     result = requests.get(url_vacancies, params=params)
+#     data = result.json()
+#     list_page = data['items']
+#     list_vacancies.extend(list_page)
 
 # list_name_vacancies = []
 # for vacancy in list_vacancies:
