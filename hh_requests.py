@@ -9,13 +9,7 @@ from areas import menu_seach_parametrs, menu_parser
 
 
 
-# list_vacancies = []  # все вакансии по  запросу
-# for page in range(pages):
-#     params = seach_parametrs(profession, point, page)
-#     result = requests.get(url_vacancies, params=params)
-#     data = result.json()
-#     list_page = data['items']
-#     list_vacancies.extend(list_page)
+
 
 # list_name_vacancies = []
 # for vacancy in list_vacancies:
