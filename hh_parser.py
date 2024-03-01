@@ -180,7 +180,7 @@ def get_list_all_vacancies(profession, point, pages):
 
 
 def menu_parser():
-    """
+    """1
     Меню функци  парсера
     :return:
     """
@@ -215,13 +215,17 @@ def menu_parser():
             found_vacancies = data['found']
             print(f'*** По запросу "{keywords}" найдено вакансий: {found_vacancies}  ***')
             print(f'*** Количество страниц данных: {pages}  ***')
-            print('Процесс идет, ждите ответа....')
-            # получение list с вакансиями, полученными по их url
-            all_vacancies_list = get_list_all_vacancies(profession, point, pages)
+            answer = input("Начать поиск (да - нет)? ")
 
-            # Создать словарь с ключами 'ключ поиска" и "вакансии все и сохранить его в файл
-            # dict_search  = {'keyword': str, 'vacancies_all': []}
-            dict_search = dict(keyword=keywords, vacancies_all=all_vacancies_list)
+            dict_search = None
+            if answer == 'да' or answer == 'lf':
+            # получение list с вакансиями, полученными по их url
+                print('Процесс идет, ждите ответа....')
+                all_vacancies_list = get_list_all_vacancies(profession, point, pages)
+
+                # Создать словарь с ключами 'ключ поиска" и "вакансии все и сохранить его в файл
+                # dict_search  = {'keyword': str, 'vacancies_all': []}
+                dict_search = dict(keyword=keywords, vacancies_all=all_vacancies_list)
 
             with open('get_vacancies.json', 'w') as f:  # перезапись данных
                 json.dump(dict_search, f)
@@ -292,7 +296,7 @@ def menu_parser():
                 print()
                 answer = input('Сохранить данные в файл ? ("да" - "нет"): ')
                 if answer == 'да':
-                    with open('report_salary', 'w') as f:
+                    with open('report_salary.json', 'w') as f:
                         json.dump(dict_salary_from_to, f)
                 else:
                     print('Ладно, позже....')
@@ -350,7 +354,7 @@ def menu_parser():
                 pprint.pprint(sort_all_dict_skill[0:50])
                 answer = input('Сохранить данные в файл ? ("да" - "нет"): ')
                 if answer == 'да':
-                    with open('report_skill_rating', 'w') as f:
+                    with open('report_skill_rating.json', 'w') as f:
                         json.dump(sort_all_dict_skill, f)
                 else:
                     print('Ладно, позже....')
@@ -359,6 +363,19 @@ def menu_parser():
                 answer = input('Файл данных для анализа еще не создан, создать его ("да" - "нет?")')
                 if answer == "да":
                     menu_parser()
+        elif choice == '4':
+            print("Текущая деректория:", os.getcwd())
+            i = 1
+            for el in os.listdir():
+                if os.path.isfile(el):
+                    print(f'{i}. {el}')
+                    i += 1
+
+            answer = input("Введите  имя файла...")
+
+            with open(answer, 'r') as f:
+                report = json.load(f)
+            pprint.pprint(report)
         elif (choice == 'q') or (choice == 'й'):
              break
         else:
