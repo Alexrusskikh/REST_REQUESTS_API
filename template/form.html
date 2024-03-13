@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>request form</title>
+</head>
+<body>
+    <header id="header" class="header">
+        <h1>Парсер HeadHanter</h1>
+        <img src="hh.jpg" alt="Картинка логотипа HeadHanter" width="300">
+        <h2>Страница формирования запроса</h2>
+    </header>
+    
+
+    <nav id="navigation">
+        <h3>Навигация по сайту</h3>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="form.html" >Страница запроса</a></li>
+            <li><a href="result.html">Результат поиска</a></li>
+        </ul>
+    </nav>
+    <hr>
+    <section>
+        <h3>Сформируйте запрос</h3>
+        <form action="result.html">
+            <label for="vacansy" >Введите искомую вакансию: </label>
+            <input type="text" id="vacansy" name="vacansy" placeholder="Введите ваканссию...">
+            <br>
+            <p><label for="country">Введите страну поиска: </label>
+            <input type="text" id="country" name="country" placeholder="Введите страну поиска..."></p>
+            <p><label for="locality">Введите регион или населенный пункт поиска: </label>
+                <input type="text" id="locality" name="locality" placeholder="Введите локацию..."></p>
+
+            <p><label for="area">Выбери область поиска:</label>
+
+                <select name="area" id="area">
+                  <option value="">--Выбери область поиска...--</option>
+                  <option value="all">Везде</option>
+                  <option value="name_vacansy">Наименование</option>
+                  <option value="name_company">Компания</option>
+                  
+                </select>
+
+            </p>
+            <input type="submit" value="Отправить запрос">
+            </form>
+
+
+    </section>
+    <hr>
+</body>
+</html>
