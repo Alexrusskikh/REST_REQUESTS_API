@@ -306,7 +306,6 @@ def menu_parser():
                     menu_parser()
 
         elif choice == '3':
-            pass
             if os.path.exists('get_vacancies.json'):
                 with open('get_vacancies.json', 'r') as f:
                     dict_search = json.load(f)
